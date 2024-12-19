@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #050505, #0e0f24);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #333;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00d9ff;
+            text-shadow: 0px 0px 10px #00d9ff;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ddd;
+            margin-left: 20px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        nav a:hover {
+            color: #00d9ff;
+            text-shadow: 0px 0px 8px #00d9ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+            background: url('preso.png') no-repeat center center/cover;
+            box-shadow: inset 0px 0px 50px #000;
+            color: #fff;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0px 0px 15px #00d9ff;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #00d9ff;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Seções Centralizadas */
+        .section-box {
+            background: rgba(20, 20, 20, 0.8);
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px #00d9ff;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .section-box h2 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+            text-shadow: 0px 0px 10px #00d9ff;
+        }
+        .section-box input {
+            width: 80%;
+            max-width: 300px;
+            padding: 10px;
+            margin: 15px 0;
+            border: 2px solid #00d9ff;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            color: #00d9ff;
+            background: transparent;
+            outline: none;
+            text-align: center;
+            box-shadow: 0px 0px 8px rgba(0, 217, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .section-box input::placeholder {
+            color: #00d9ff;
+            opacity: 0.6;
+        }
+        .section-box input:focus {
+            border-color: #00ffff;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.8);
+        }
+        .section-box button {
+            background: linear-gradient(135deg, #00d9ff, #0055ff);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #00d9ff;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+        .section-box button:hover {
+            box-shadow: 0px 0px 20px #00d9ff;
+        }
+
+        /* Links */
+        .section-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section-box li a {
+            color: #00d9ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .section-box li a:hover {
+            color: #0055ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Vida Online</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#vida-online">Vida Online</a>
+            <a href="#literatura">Literatura Correlata</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vida Online</h1>
+            <p>Descubra quantos anos você passou conectado de 2014 a 2024</p>
+        </div>
+    </section>
+
+    <!-- Vida Online -->
+    <section id="vida-online" class="section-box">
+        <h2>Insira suas horas diárias</h2>
+        <input type="number" id="hoursPerDay" min="0" max="24" placeholder="Horas por dia (0-24)">
+        <button onclick="calculateTime()">Calcular</button>
+        <p id="result"></p>
+    </section>
+
+    <!-- Literatura Correlata -->
+    <section id="literatura" class="section-box">
+        <h2>Literatura Correlata</h2>
+        <ul>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9638701/" target="_blank">Study of Screen Time and Health Effects</a></li>
+            <li><a href="https://www.scielo.br/j/csc/a/GmStpKgyqGTtLwgCdQx8NMR/?format=pdf&lang=pt" target="_blank">Uso de Telas e Saúde Pública</a></li>
+            <li><a href="https://observatorio.fiocruz.br/sites/default/files/observatorio_da_fiocruz_em_ctei_-_estudo_screentime.pdf" target="_blank">Observatório Fiocruz: Estudo sobre Screentime</a></li>
+            <li><a href="https://www.imrpress.com/journal/JIN/21/1/10.31083/j.jin2101028" target="_blank">Cognitive Effects of Prolonged Screen Time</a></li>
+            <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S001393511830015X" target="_blank">Health and Environmental Impacts of Screen Usage</a></li>
+            <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1087079214000811" target="_blank">Sleep Deprivation due to Screen Time</a></li>
+        </ul>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="section-box">
+        <h2>Sobre</h2>
+        <p>Este projeto reflete sobre os impactos do tempo de tela na vida das pessoas, criando uma visão crítica frente ao uso excessivo de tecnologias digitais.</p>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section-box">
+        <h2>Contato</h2>
+        <p>Para mais informações, entre em contato pelo e-mail:</p>
+        <p><a href="mailto:macedo.samuel@yahoo.com">macedo.samuel@yahoo.com</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 Vida Online | Todos os direitos reservados.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function calculateTime() {
+            var hoursPerDay = parseFloat(document.getElementById("hoursPerDay").value);
+            if (isNaN(hoursPerDay) || hoursPerDay < 0 || hoursPerDay > 24) {
+                alert("Por favor, insira um valor válido entre 0 e 24.");
+                return;
+            }
+            var totalDays = 4018;
+            var totalHours = hoursPerDay * totalDays;
+            var totalYears = totalHours / (24 * 365.25);
+            document.getElementById("result").innerHTML = 
+                "Você passou aproximadamente <strong>" + totalYears.toFixed(2) + "</strong> anos conectado.";
+        }
+    </script>
+</body>
+</html>
